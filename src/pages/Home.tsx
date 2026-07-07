@@ -110,6 +110,7 @@ export default function Home() {
               {currentProducts.length > 0 ? (
                 currentProducts.map((product) => (
                   <ProductCard
+                    id={product.id}
                     key={product.id}
                     title={product.title}
                     price={product.price}
