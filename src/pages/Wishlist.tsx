@@ -34,7 +34,7 @@ function Wishlist() {
               <h2 className="font-semibold mt-4">{item.title}</h2>
 
               <p className="text-lg font-bold mt-2">
-                ₹{item.price}
+                ${item.price}
               </p>
 
               <button

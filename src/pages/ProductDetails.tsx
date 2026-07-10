@@ -75,7 +75,7 @@ function ProductDetails() {
           </div>
 
           <h2 className="text-4xl font-bold mt-6">
-            ₹{product.price}
+            ${product.price}
           </h2>
 
           <p className="mt-8 text-gray-600 leading-8">

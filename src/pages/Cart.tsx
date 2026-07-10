@@ -27,7 +27,7 @@ export default function Cart() {
           >
             <div>
               <h2 className="font-semibold">{item.title}</h2>
-              <p>₹{item.price}</p>
+              <p>${item.price}</p>
               <p>Quantity: {item.quantity}</p>
             </div>
 

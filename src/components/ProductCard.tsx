@@ -49,7 +49,7 @@ export default function ProductCard({
       <div className="p-4">
         <h3 className="font-semibold mb-2 line-clamp-2">{title}</h3>
 
-        <p className="text-xl font-bold mb-4">₹{price}</p>
+        <p className="text-xl font-bold mb-4">${price}</p>
 
         <button
           className="w-full py-3 rounded-xl bg-black text-white"

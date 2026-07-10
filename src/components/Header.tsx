@@ -32,6 +32,7 @@ export default function Header() {
         setLoading(true);
         const data = await getAllProducts();
         setProducts(data);
+        console.log("Products fetched:", data);
       } catch (error) {
         console.error(error);
       } finally {
