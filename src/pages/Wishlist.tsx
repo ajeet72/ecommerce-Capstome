@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import type { RootState } from "../redux/store";
 import { removeFromWishlist } from "../redux/wishlist/wishlistSlice";
+import Header from "../components/Header";
 
 function Wishlist() {
   const dispatch = useDispatch();
@@ -10,6 +11,8 @@ function Wishlist() {
   );
 
   return (
+    <>
+      <Header />
     <div className="max-w-6xl mx-auto p-6">
       <h1 className="text-3xl font-bold mb-6">Wishlist</h1>
 
@@ -47,6 +50,7 @@ function Wishlist() {
         </div>
       )}
     </div>
+    </>
   );
 }
 

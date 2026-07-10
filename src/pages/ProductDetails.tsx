@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { getProductById } from "../services/api";
 import { addToCart } from "../redux/cart/cartSlice";
 import { addToWishlist } from "../redux/wishlist/wishlistSlice";
+import Header from "../components/Header";
 
 interface Product {
   id: number;
@@ -44,6 +45,8 @@ function ProductDetails() {
   }
 
   return (
+    <>
+      <Header />
     <div className="max-w-7xl mx-auto px-6 py-12">
       <div className="grid md:grid-cols-2 gap-12">
         <div className="bg-white rounded-2xl p-8 shadow">
@@ -116,6 +119,7 @@ function ProductDetails() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
