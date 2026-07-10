@@ -9,6 +9,8 @@ import {
   FiX,
 } from "react-icons/fi";
 import { getAllProducts } from "../services/api";
+import { useSelector } from "react-redux";
+import type { RootState } from "../redux/store";
 
 interface Product {
   id: number;
@@ -23,6 +25,14 @@ export default function Header() {
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
+
+  const cartCount = useSelector(
+    (state: RootState) => state.cart.items.length
+  );
+
+  const wishlistCount = useSelector(
+    (state: RootState) => state.wishlist.items.length
+  );
 
   const searchRef = useRef<HTMLDivElement>(null);
 
@@ -198,9 +208,11 @@ export default function Header() {
             >
               <FiHeart size={20} />
 
-              <span className="absolute -top-1 -right-1 bg-pink-500 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center">
-                0
-              </span>
+              {wishlistCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-pink-500 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-semibold">
+                  {wishlistCount}
+                </span>
+              )}
             </Link>
 
             <Link
@@ -209,9 +221,11 @@ export default function Header() {
             >
               <FiShoppingCart size={20} />
 
-              <span className="absolute -top-1 -right-1 bg-blue-600 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center">
-                0
-              </span>
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-blue-600 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-semibold">
+                  {cartCount}
+                </span>
+              )}
             </Link>
 
             <Link
