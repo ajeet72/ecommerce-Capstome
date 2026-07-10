@@ -19,7 +19,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-slate-900 text-white mt-20">
+    <footer className="bg-slate-900 text-white">
       {/* Newsletter */}
 
       <div className="border-b border-slate-700">

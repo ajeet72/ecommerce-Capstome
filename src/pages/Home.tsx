@@ -9,6 +9,7 @@ import {
   getCategories,
   getProductsByCategory,
 } from "../services/api";
+import Features from "../components/Features";
 
 type Product = {
   id: number;
@@ -219,6 +220,7 @@ export default function Home() {
           </>
         )}
       </section>
+      <Features />
 
       <Footer />
     </>
