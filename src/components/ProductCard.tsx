@@ -1,8 +1,8 @@
 import { FiHeart } from "react-icons/fi";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { addToCart } from "../redux/cart/cartSlice";
 import { addToWishlist } from "../redux/wishlist/wishlistSlice";
-
 
 type ProductProps = {
   id: number;
@@ -11,15 +11,27 @@ type ProductProps = {
   image: string;
 };
 
-export default function ProductCard({ id, title, price, image }: ProductProps) {
+export default function ProductCard({
+  id,
+  title,
+  price,
+  image,
+}: ProductProps) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   return (
-    <div className="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-lg transition">
+    <div
+      onClick={() => navigate(`/product/${id}`)}
+      className="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-lg transition cursor-pointer"
+    >
       <div className="relative">
         <img src={image} alt={title} className="h-64 w-full object-cover" />
 
-        <button className="absolute top-4 right-4 bg-white p-2 rounded-full"
-          onClick={() =>
+        <button
+          className="absolute top-4 right-4 bg-white p-2 rounded-full"
+          onClick={(e) => {
+            e.stopPropagation();
             dispatch(
               addToWishlist({
                 id,
@@ -27,8 +39,8 @@ export default function ProductCard({ id, title, price, image }: ProductProps) {
                 price,
                 image,
               })
-            )
-          }
+            );
+          }}
         >
           <FiHeart />
         </button>
@@ -41,7 +53,8 @@ export default function ProductCard({ id, title, price, image }: ProductProps) {
 
         <button
           className="w-full py-3 rounded-xl bg-black text-white"
-          onClick={() =>
+          onClick={(e) => {
+            e.stopPropagation();
             dispatch(
               addToCart({
                 id,
@@ -49,9 +62,9 @@ export default function ProductCard({ id, title, price, image }: ProductProps) {
                 price,
                 image,
                 quantity: 1,
-              }),
-            )
-          }
+              })
+            );
+          }}
         >
           Add to Cart
         </button>

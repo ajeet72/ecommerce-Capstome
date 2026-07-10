@@ -21,3 +21,12 @@ export const getProductsByCategory = async (category: string) => {
   );
   return res.data;
 };
+
+export const getProductById = async (id: number) => {
+  const response = await axios.get(
+    `https://fakestoreapi.com/products/${id}`
+  );
+
+  return response.data;
+};
+
