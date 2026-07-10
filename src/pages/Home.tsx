@@ -26,6 +26,18 @@ export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 
+  const [activeCategory, setActiveCategory] = useState<string>("All");
+
+  const handleCategoryClick = (cat: string) => {
+    setActiveCategory(cat);
+    filterByCategory(cat);
+  };
+
+  const handleAllClick = () => {
+    setActiveCategory("All");
+    loadProducts();
+  };
+
   // Load all products
   const loadProducts = async () => {
     setLoading(true);
@@ -55,7 +67,6 @@ export default function Home() {
     loadCategories();
   }, []);
 
-  // ---------------- PAGINATION LOGIC ----------------
   const totalPages = Math.ceil(products.length / itemsPerPage);
 
   const indexOfLast = currentPage * itemsPerPage;
@@ -75,13 +86,21 @@ export default function Home() {
       <Banner />
 
       {/* CATEGORY FILTER */}
+      {/* CATEGORIES */}
       <section className="max-w-7xl mx-auto px-6 mt-10">
-        <h2 className="text-2xl font-bold mb-4">Categories</h2>
+        <div className="flex items-center gap-3 mb-5">
+          <span className="h-6 w-1.5 rounded-full bg-gradient-to-b from-black to-slate-600" />
+          <h2 className="text-2xl font-bold">Categories</h2>
+        </div>
 
         <div className="flex gap-3 flex-wrap">
           <button
-            onClick={loadProducts}
-            className="px-4 py-2 rounded-full bg-black text-white"
+            onClick={handleAllClick}
+            className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${
+              activeCategory === "All"
+                ? "bg-black text-white shadow-lg shadow-black/20 scale-105"
+                : "bg-white text-slate-700 border border-slate-200 hover:border-black hover:shadow-md"
+            }`}
           >
             All
           </button>
@@ -89,8 +108,12 @@ export default function Home() {
           {categories.map((cat) => (
             <button
               key={cat}
-              onClick={() => filterByCategory(cat)}
-              className="px-4 py-2 rounded-full border border-slate-300 hover:bg-black hover:text-white transition"
+              onClick={() => handleCategoryClick(cat)}
+              className={`px-5 py-2.5 rounded-full text-sm font-semibold capitalize transition-all duration-200 ${
+                activeCategory === cat
+                  ? "bg-black text-white shadow-lg shadow-black/20 scale-105"
+                  : "bg-white text-slate-700 border border-slate-200 hover:border-black hover:shadow-md"
+              }`}
             >
               {cat}
             </button>
@@ -100,10 +123,35 @@ export default function Home() {
 
       {/* PRODUCTS */}
       <section className="max-w-7xl mx-auto px-6 py-16">
-        <h2 className="text-3xl font-bold mb-10">Products</h2>
+        <div className="flex items-center justify-between mb-10">
+          <div className="flex items-center gap-3">
+            <span className="h-6 w-1.5 rounded-full bg-gradient-to-b from-black to-slate-600" />
+            <h2 className="text-3xl font-bold">Products</h2>
+          </div>
+          {!loading && (
+            <p className="text-sm text-slate-500">
+              Showing{" "}
+              <span className="font-semibold text-slate-800">
+                {currentProducts.length}
+              </span>{" "}
+              results
+            </p>
+          )}
+        </div>
 
         {loading ? (
-          <p className="text-slate-500">Loading products...</p>
+          <div className="grid md:grid-cols-3 gap-6">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <div
+                key={i}
+                className="rounded-2xl border border-slate-100 p-4 animate-pulse bg-white"
+              >
+                <div className="h-48 w-full rounded-xl bg-slate-100" />
+                <div className="h-4 w-3/4 rounded bg-slate-100 mt-4" />
+                <div className="h-4 w-1/3 rounded bg-slate-100 mt-2" />
+              </div>
+            ))}
+          </div>
         ) : (
           <>
             <div className="grid md:grid-cols-3 gap-6">
@@ -118,43 +166,51 @@ export default function Home() {
                   />
                 ))
               ) : (
-                <p>No products found</p>
+                <div className="col-span-full flex flex-col items-center justify-center py-20 text-center">
+                  <div className="h-16 w-16 rounded-full bg-slate-100 flex items-center justify-center text-2xl mb-4">
+                    🔍
+                  </div>
+                  <p className="text-lg font-semibold text-slate-800">
+                    No products found
+                  </p>
+                  <p className="text-sm text-slate-500 mt-1">
+                    Try a different category or check back later.
+                  </p>
+                </div>
               )}
             </div>
 
             {/* PAGINATION */}
             {totalPages > 1 && (
-              <div className="flex items-center justify-center gap-2 mt-10">
-
-                {/* Prev */}
+              <div className="flex items-center justify-center gap-2 mt-14">
                 <button
                   onClick={() => goToPage(currentPage - 1)}
-                  className="px-3 py-2 border rounded hover:bg-black hover:text-white"
+                  disabled={currentPage === 1}
+                  className="h-10 w-10 flex items-center justify-center rounded-full border border-slate-200 text-slate-600 hover:bg-black hover:text-white hover:border-black transition-all disabled:opacity-30 disabled:pointer-events-none"
                 >
                   ←
                 </button>
 
-                {/* Pages */}
                 {Array.from({ length: totalPages }, (_, i) => i + 1).map(
                   (num) => (
                     <button
                       key={num}
                       onClick={() => goToPage(num)}
-                      className={`px-4 py-2 border rounded ${
+                      className={`h-10 w-10 flex items-center justify-center rounded-full text-sm font-semibold transition-all ${
                         currentPage === num
-                          ? "bg-black text-white"
-                          : "hover:bg-black hover:text-white"
+                          ? "bg-black text-white shadow-md shadow-black/20"
+                          : "border border-slate-200 text-slate-600 hover:bg-black hover:text-white hover:border-black"
                       }`}
                     >
                       {num}
                     </button>
-                  )
+                  ),
                 )}
 
-                {/* Next */}
                 <button
                   onClick={() => goToPage(currentPage + 1)}
-                  className="px-3 py-2 border rounded hover:bg-black hover:text-white"
+                  disabled={currentPage === totalPages}
+                  className="h-10 w-10 flex items-center justify-center rounded-full border border-slate-200 text-slate-600 hover:bg-black hover:text-white hover:border-black transition-all disabled:opacity-30 disabled:pointer-events-none"
                 >
                   →
                 </button>
