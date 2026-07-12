@@ -20,7 +20,6 @@ export default function Footer() {
 
   return (
     <footer className="bg-slate-900 text-white">
-      {/* Newsletter */}
 
       <div className="border-b border-slate-700">
         <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col lg:flex-row items-center justify-between gap-6">
@@ -48,7 +47,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Main Footer */}
 
       <div className="max-w-7xl mx-auto px-6 py-14">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -154,7 +152,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Customer */}
 
           <div>
             <h3 className="text-xl font-semibold mb-5">
@@ -182,7 +179,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
 
           <div>
             <h3 className="text-xl font-semibold mb-5">
@@ -211,7 +207,6 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom */}
 
         <div className="border-t border-slate-700 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
 
