@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import {
   FiEye,
   FiEyeOff,
@@ -10,6 +11,12 @@ import {
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
+
+  const navigate = useNavigate();
+
+  function handleClick() {
+    navigate("/", { replace: true });
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 flex items-center justify-center px-6 py-12">
@@ -129,6 +136,7 @@ function Login() {
 
             <button
               type="submit"
+              onClick={handleClick}
               className="w-full rounded-xl bg-black py-3 font-semibold text-white transition hover:bg-slate-800 hover:scale-[1.02]"
             >
               Login
