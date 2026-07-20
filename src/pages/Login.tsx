@@ -47,7 +47,6 @@ function Login() {
           </div>
         </div>
 
-        {/* Right Side */}
         <div className="p-8 md:p-12">
 
           <div className="text-center lg:text-left">
@@ -61,8 +60,6 @@ function Login() {
           </div>
 
           <form className="mt-10 space-y-6">
-
-            {/* Email */}
 
             <div>
               <label className="block mb-2 text-sm font-semibold text-slate-700">
@@ -82,8 +79,6 @@ function Login() {
                 />
               </div>
             </div>
-
-            {/* Password */}
 
             <div>
               <label className="block mb-2 text-sm font-semibold text-slate-700">
@@ -116,8 +111,6 @@ function Login() {
               </div>
             </div>
 
-            {/* Remember */}
-
             <div className="flex items-center justify-between text-sm">
               <label className="flex items-center gap-2 text-slate-600">
                 <input type="checkbox" />
@@ -132,8 +125,6 @@ function Login() {
               </Link>
             </div>
 
-            {/* Login Button */}
-
             <button
               type="submit"
               onClick={handleClick}
@@ -141,8 +132,6 @@ function Login() {
             >
               Login
             </button>
-
-            {/* Divider */}
 
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
@@ -156,16 +145,12 @@ function Login() {
               </div>
             </div>
 
-            {/* Continue Shopping */}
-
             <Link
               to="/"
               className="block text-center rounded-xl border border-slate-300 py-3 font-semibold hover:bg-slate-100 transition"
             >
               Continue Shopping
             </Link>
-
-            {/* Signup */}
 
             <p className="text-center text-slate-600">
               Don't have an account?{" "}

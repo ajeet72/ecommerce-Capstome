@@ -48,7 +48,6 @@ function Wishlist() {
                   key={item.id}
                   className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 flex flex-col md:flex-row gap-6 items-center"
                 >
-                  {/* Image */}
 
                   <div className="w-48 h-48 bg-gray-100 rounded-xl flex items-center justify-center p-4">
                     <img
@@ -57,8 +56,6 @@ function Wishlist() {
                       className="max-h-full object-contain hover:scale-105 transition"
                     />
                   </div>
-
-                  {/* Details */}
 
                   <div className="flex-1">
                     <h2 className="text-2xl font-bold text-gray-800">
@@ -84,8 +81,6 @@ function Wishlist() {
                       </span>
                     </div>
                   </div>
-
-                  {/* Buttons */}
 
                   <div className="flex flex-col gap-4 w-full md:w-56">
                     <button

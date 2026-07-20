@@ -26,4 +26,3 @@ export const getProductById = async (id: number) => {
 
   return response.data;
 };
-

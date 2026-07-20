@@ -78,8 +78,6 @@ export default function Checkout() {
       <div className="min-h-screen bg-slate-100 py-10 px-4">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-3 gap-8">
 
-          {/* Payment */}
-
           <div className="lg:col-span-2 bg-white rounded-3xl shadow-lg p-8">
 
             <h1 className="text-3xl font-bold mb-2">
@@ -91,8 +89,6 @@ export default function Checkout() {
             </p>
 
             <div className="space-y-4">
-
-              {/* Card */}
 
               <label
                 className={`border rounded-2xl p-5 flex items-center gap-4 cursor-pointer transition ${
@@ -113,8 +109,6 @@ export default function Checkout() {
                   Credit / Debit Card
                 </span>
               </label>
-
-              {/* UPI */}
 
               <label
                 className={`border rounded-2xl p-5 flex items-center gap-4 cursor-pointer transition ${
@@ -199,8 +193,6 @@ export default function Checkout() {
             </div>
 
           </div>
-
-          {/* Order Summary */}
 
           <div className="bg-white rounded-3xl shadow-lg p-8 h-fit">
 

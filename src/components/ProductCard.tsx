@@ -57,17 +57,11 @@ export default function ProductCard({ id, title, price, image }: ProductProps) {
       flex-col
       "
     >
-      {/* IMAGE */}
-
-      {/* IMAGE */}
-
       <div className="relative bg-slate-100 h-72 flex items-center justify-center p-8">
-        {/* Discount Badge */}
         <span className="absolute left-4 top-4 z-20 rounded-full bg-red-500 px-3 py-1 text-xs font-semibold text-white">
           SALE
         </span>
 
-        {/* Wishlist */}
         <button
           type="button"
           onClick={handleWishlistClick}
@@ -89,14 +83,12 @@ export default function ProductCard({ id, title, price, image }: ProductProps) {
           />
         </button>
 
-        {/* Product Image */}
         <img
           src={image}
           alt={title}
           className="h-52 w-full object-contain transition-transform duration-500 group-hover:scale-110"
         />
 
-        {/* Quick View Overlay */}
         <div
           className="
       absolute
@@ -133,16 +125,13 @@ export default function ProductCard({ id, title, price, image }: ProductProps) {
         </div>
       </div>
 
-      {/* CONTENT */}
 
       <div className="flex flex-1 flex-col p-6">
-        {/* Category */}
 
         <span className="mb-3 text-xs font-semibold uppercase tracking-wider text-blue-600">
           Premium Collection
         </span>
 
-        {/* Title */}
 
         <h3
           className="
@@ -156,8 +145,6 @@ export default function ProductCard({ id, title, price, image }: ProductProps) {
           {title}
         </h3>
 
-        {/* Rating */}
-
         <div className="mt-3 flex items-center gap-2">
           <span className="rounded bg-green-600 px-2 py-1 text-xs text-white">
             ★ 4.8
@@ -165,8 +152,6 @@ export default function ProductCard({ id, title, price, image }: ProductProps) {
 
           <span className="text-sm text-slate-500">(245 Reviews)</span>
         </div>
-
-        {/* Price */}
 
         <div className="mt-5 flex items-center gap-3">
           <span className="text-3xl font-bold">${price}</span>
@@ -176,11 +161,7 @@ export default function ProductCard({ id, title, price, image }: ProductProps) {
           </span>
         </div>
 
-        {/* Spacer */}
-
         <div className="flex-1" />
-
-        {/* Buttons */}
 
         <div className="mt-8 flex gap-3">
           <button

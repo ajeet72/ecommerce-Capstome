@@ -30,10 +30,6 @@ interface Review {
 
 const SIZES = ["S", "M", "L", "XL", "XXL"];
 
-// Fakestoreapi (and similar) don't return real reviews, so we derive a
-// realistic-looking review list from the product's rating so the UI has
-// something meaningful to render. Swap this out once a real reviews
-// endpoint exists.
 function buildMockReviews(product: Product): Review[] {
   const names = [
     "Aarav Shah",
@@ -158,7 +154,6 @@ function ProductDetails() {
       <Header />
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid md:grid-cols-2 gap-12">
-          {/* Image */}
           <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
             <img
               src={product.image}
@@ -167,7 +162,6 @@ function ProductDetails() {
             />
           </div>
 
-          {/* Details */}
           <div>
             <p className="text-sm uppercase tracking-wide text-gray-500 font-medium">
               {product.category}
@@ -190,7 +184,6 @@ function ProductDetails() {
               ${product.price.toFixed(2)}
             </h2>
 
-            {/* Sizes */}
             <div className="mt-8">
               <p className="text-sm font-semibold text-gray-800 mb-3">
                 Select Size
@@ -212,7 +205,6 @@ function ProductDetails() {
               </div>
             </div>
 
-            {/* Quantity */}
             <div className="mt-8">
               <p className="text-sm font-semibold text-gray-800 mb-3">
                 Quantity
@@ -241,7 +233,6 @@ function ProductDetails() {
               </div>
             </div>
 
-            {/* Actions */}
             <div className="mt-10 flex gap-4">
               <button
                 className="flex-1 bg-black text-white px-8 py-4 rounded-xl font-semibold hover:bg-gray-800 transition-colors"
@@ -264,7 +255,6 @@ function ProductDetails() {
               </div>
             )}
 
-            {/* Trust badges */}
             <div className="mt-8 grid grid-cols-3 gap-3 text-center">
               <div className="border border-gray-200 rounded-xl py-3 px-2">
                 <p className="text-xs font-semibold text-gray-800">Free Delivery</p>
@@ -282,7 +272,6 @@ function ProductDetails() {
           </div>
         </div>
 
-        {/* Tabs: Description / Reviews / Returns */}
         <div className="mt-16">
           <div className="flex gap-8 border-b border-gray-200">
             {(

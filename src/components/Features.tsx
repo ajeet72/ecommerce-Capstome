@@ -36,7 +36,6 @@ export default function Features() {
   return (
     <section className="bg-slate-50 py-20">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Heading */}
         <div className="text-center max-w-2xl mx-auto mb-14">
           <span className="inline-block rounded-full bg-black text-white px-4 py-1 text-sm font-medium mb-4">
             Why Choose Us
@@ -53,7 +52,6 @@ export default function Features() {
           </p>
         </div>
 
-        {/* Features */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((feature) => {
             const Icon = feature.icon;

@@ -51,8 +51,6 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-14">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
 
-          {/* Brand */}
-
           <div>
             <h2 className="text-3xl font-bold text-blue-400">
               LumaStore
@@ -103,8 +101,6 @@ export default function Footer() {
 
             </div>
           </div>
-
-          {/* Quick Links */}
 
           <div>
             <h3 className="text-xl font-semibold mb-5">

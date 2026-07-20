@@ -2,7 +2,6 @@ export default function Banner() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 text-white">
 
-      {/* Background Effects */}
       <div className="absolute -top-40 -left-32 h-96 w-96 rounded-full bg-blue-500/20 blur-3xl" />
       <div className="absolute top-32 right-0 h-[500px] w-[500px] rounded-full bg-purple-500/20 blur-3xl" />
       <div className="absolute bottom-0 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-cyan-400/10 blur-3xl" />
@@ -11,7 +10,6 @@ export default function Banner() {
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-          {/* Left Content */}
           <div>
 
             <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-5 py-2 text-sm font-medium backdrop-blur">

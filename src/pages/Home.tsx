@@ -39,7 +39,6 @@ export default function Home() {
     loadProducts();
   };
 
-  // Load all products
   const loadProducts = async () => {
     setLoading(true);
     const data = await getAllProducts();
@@ -48,13 +47,11 @@ export default function Home() {
     setLoading(false);
   };
 
-  // Load categories
   const loadCategories = async () => {
     const data = await getCategories();
     setCategories(data);
   };
 
-  // Filter by category
   const filterByCategory = async (category: string) => {
     setLoading(true);
     const data = await getProductsByCategory(category);
@@ -86,8 +83,6 @@ export default function Home() {
       <Header />
       <Banner />
 
-      {/* CATEGORY FILTER */}
-      {/* CATEGORIES */}
       <section className="max-w-7xl mx-auto px-6 mt-10">
         <div className="flex items-center gap-3 mb-5">
           <span className="h-6 w-1.5 rounded-full bg-gradient-to-b from-black to-slate-600" />
@@ -122,7 +117,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PRODUCTS */}
       <section className="max-w-7xl mx-auto px-6 py-16">
         <div className="flex items-center justify-between mb-10">
           <div className="flex items-center gap-3">

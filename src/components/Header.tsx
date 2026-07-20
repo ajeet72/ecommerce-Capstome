@@ -104,7 +104,6 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
         <div className="flex items-center justify-between h-20 gap-6">
-          {/* Logo */}
 
           <Link
             to="/"
@@ -124,8 +123,6 @@ export default function Header() {
               </p>
             </div>
           </Link>
-
-          {/* Search */}
 
           <div
             ref={searchRef}
@@ -199,8 +196,6 @@ export default function Header() {
             )}
           </div>
 
-          {/* Right */}
-
           <div className="flex items-center gap-3">
             <Link
               to="/wishlist"
@@ -244,8 +239,6 @@ export default function Header() {
             </button>
           </div>
         </div>
-
-        {/* Mobile Menu */}
 
         {mobileMenu && (
           <div className="lg:hidden py-5 border-t border-slate-200 flex flex-col gap-4">

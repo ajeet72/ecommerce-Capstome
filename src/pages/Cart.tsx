@@ -42,8 +42,6 @@ export default function Cart() {
       <div className="min-h-screen bg-slate-50 py-10">
         <div className="max-w-7xl mx-auto px-5">
 
-          {/* Page Header */}
-
           <div className="flex items-center justify-between mb-10">
             <div>
               <button
@@ -104,8 +102,6 @@ export default function Cart() {
           ) : (
             <div className="grid lg:grid-cols-3 gap-8">
 
-              {/* LEFT SIDE */}
-
               <div className="lg:col-span-2 space-y-6">
 
                 {cartItems.map((item) => (
@@ -113,7 +109,6 @@ export default function Cart() {
                     key={item.id}
                     className="bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 p-6 flex flex-col md:flex-row gap-6"
                   >
-                    {/* IMAGE */}
 
                     <div
                       onClick={() =>
@@ -127,8 +122,6 @@ export default function Cart() {
                         className="max-h-full object-contain hover:scale-105 transition"
                       />
                     </div>
-
-                    {/* DETAILS */}
 
                     <div className="flex-1 flex flex-col justify-between">
 
@@ -165,11 +158,7 @@ export default function Cart() {
                         </div>
                       </div>
 
-                      {/* ACTIONS */}
-
                       <div className="flex flex-wrap items-center justify-between gap-5 mt-8">
-
-                        {/* Quantity */}
 
                         <div className="flex items-center bg-slate-100 rounded-xl overflow-hidden">
 
@@ -201,8 +190,6 @@ export default function Cart() {
 
                         </div>
 
-                        {/* Remove */}
-
                         <button
                           onClick={() =>
                             dispatch(removeFromCart(item.id))
@@ -219,17 +206,12 @@ export default function Cart() {
                 ))}
               </div>
 
-              {/* RIGHT SIDE - ORDER SUMMARY */}
-                            {/* RIGHT SIDE */}
-
               <div className="lg:sticky lg:top-28 h-fit">
                 <div className="bg-white rounded-3xl shadow-sm p-7">
 
                   <h2 className="text-2xl font-bold text-slate-800 mb-6">
                     Order Summary
                   </h2>
-
-                  {/* Coupon */}
 
                   <div className="mb-8">
                     <label className="block text-sm font-medium text-slate-600 mb-2">
@@ -248,8 +230,6 @@ export default function Cart() {
                       </button>
                     </div>
                   </div>
-
-                  {/* Price Details */}
 
                   <div className="space-y-4">
 
@@ -291,16 +271,12 @@ export default function Cart() {
 
                   </div>
 
-                  {/* Secure Checkout */}
-
                   <button
                     onClick={() => navigate("/checkout")}
                     className="w-full mt-8 bg-gradient-to-r from-blue-600 to-violet-600 text-white py-4 rounded-2xl font-semibold text-lg hover:scale-[1.02] hover:shadow-xl transition"
                   >
                     Proceed to Checkout
                   </button>
-
-                  {/* Payment Icons */}
 
                   <div className="mt-6">
                     <p className="text-sm text-slate-500 mb-3">
@@ -333,8 +309,6 @@ export default function Cart() {
                       </div>
                     </div>
                   </div>
-
-                  {/* Delivery */}
 
                   <div className="mt-8 rounded-2xl bg-blue-50 border border-blue-100 p-4">
 
