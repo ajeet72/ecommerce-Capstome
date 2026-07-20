@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../redux/store";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
+import { clearCart } from "../redux/cart/cartSlice";
 import {
   FiCreditCard,
   FiSmartphone,
@@ -12,6 +13,7 @@ import {
 
 export default function Checkout() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const cartItems = useSelector(
     (state: RootState) => state.cart.items
@@ -257,7 +259,10 @@ export default function Checkout() {
             </div>
 
             <button
-              onClick={() => setSuccess(true)}
+              onClick={() => {
+                dispatch(clearCart());
+                setSuccess(true);
+              }}
               className="w-full mt-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-violet-600 text-white font-semibold text-lg hover:scale-[1.02] transition"
             >
               Pay ${total.toFixed(2)}
